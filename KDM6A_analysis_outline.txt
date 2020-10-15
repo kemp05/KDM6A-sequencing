@@ -1,0 +1,11 @@
+KDM6A_analysis
+
+25 coding region amplicons
+Multiplex PCR preamp (three pools of the amplicons) and then used product as template for individual PCR amplicon reactions in Fluidigm Access Array chip.
+Fluidigm barcode indexing (CS1 and CS2 adapters)
+Sequenced by Illumina MiSeq 150 bp PE
+Obtained sample demultiplexed fastq files from Genomics/Bioinformatics core services
+For each fastq file reads were trimmed to 120 nt. (length of shortest amplicon [no.1]), corresponding forward and reverse trimmed reads were then merged using PANDAseq 2.11 with default options 
+Used NUCLEOTIDE_COUNT_FOR_KDM6A.pl (on each amplicon separately) to make a flat file of counts for all position/nucleotides for all samples.
+Used HASH_KDM6A.pl (on each amplicon flat file above) to calculate mean and st.dev. for every position/nucleotide count of all samples and then call SNVs greater than threshold allele frequency.
+Cora then manually curated these calls.
